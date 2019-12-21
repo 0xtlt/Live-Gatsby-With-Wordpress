@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap");
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+.homepage {
+  display: flex;
+}
+.homepage .leftPart {
+  position: relative;
+  border-radius: 0 50px 50px 0;
+  overflow: hidden;
+  width: 60%;
+  height: 100vh;
+}
+.homepage .leftPart .is-draggable {
+  cursor: grab;
+}
+.homepage .leftPart .is-draggable.is-dragging {
+  cursor: grabbing;
+}
+.homepage .leftPart .navigator {
+  position: absolute;
+  bottom: 30px;
+  left: 20%;
+  z-index: 2;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.homepage .leftPart .navigator .bars {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 2px;
+  margin: 0 10px;
+}
+.homepage .leftPart .navigator .bars .bar {
+  display: block;
+  background: rgba(255, 255, 255, 0.5);
+  width: 20px;
+  height: 2px;
+}
+.homepage .leftPart .navigator .bars .bar.active {
+  background: #fff;
+}
+.homepage .leftPart .navigator .arrows {
+  display: flex;
+  margin-left: 20px;
+}
+.homepage .leftPart .navigator .arrows button {
+  border: none;
+  padding: 0 10px;
+  background: transparent;
+}
+.homepage .leftPart .navigator .arrows button:first-child svg {
+  transform: rotate(180deg);
+}
+.homepage .leftPart .navigator .arrows button.disabled g {
+  fill: rgba(255, 255, 255, 0.5);
+}
+.homepage .leftPart .navigator .arrows svg {
+  height: 12px;
+  cursor: pointer;
+}
+.homepage .leftPart .navigator .arrows svg g {
+  fill: white;
+}
+.homepage .rightPart {
+  width: 40%;
+  height: 100vh;
+  overflow: hidden;
+}
+.homepage .rightPart .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 30px 60px;
+}
+.homepage .rightPart .navbar li {
+  margin-left: 30px;
+  display: block;
+  color: black;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.homepage .rightPart .navbar li .picture {
+  display: block;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.homeslider .wrapper {
+  flex: 0 0 200px;
+}
+.homeslider .wrapper:first-child {
+  flex: 0 0 250px;
+}
+.homeslider .wrapper:first-child .littlePost {
+  margin-left: 50px;
+}
+.homeslider .littlePost {
+  border-radius: 15px;
+  height: 300px;
+  margin-right: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.homeslider .littlePost:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+.homeslider .littlePost .picture {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.homeslider .littlePost h3 {
+  position: absolute;
+  top: calc(100% - 50px);
+  left: 20px;
+  width: calc(100% - 20px - 20px);
+  z-index: 2;
+  color: white;
+  margin: 0;
+  font-weight: lighter;
+  font-size: 0.8em;
+}
+a {
+  text-decoration: none;
+}
+.post {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.post:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.post .backgroundImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.post .center {
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.post .center h2 {
+  color: white;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 100;
+  text-transform: capitalize;
+}
+.post .center .excerpt {
+  margin-top: 15px;
+  color: white;
+}
+.post .center .excerpt p {
+  margin: 0;
+  text-transform: capitalize;
+}
+.post .center .button {
+  color: white;
+  background: #3498db;
+  padding: 15px 50px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 30px;
+}
