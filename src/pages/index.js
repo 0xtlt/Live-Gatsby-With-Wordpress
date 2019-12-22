@@ -6,10 +6,10 @@ import Img from "gatsby-image"
 import NextIcon from "../icons/next.svg"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import Post from "../components/post"
 import HomeSlider from "../components/homeSlider"
+import SearchBar from "../components/search";
 
 const IndexPage = ({ data }) => {
   const [slider, setSlider] = useState(null);
@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
         });
     }
   }, [slider, setWhereWeAre]);
-  
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -51,7 +51,8 @@ const IndexPage = ({ data }) => {
           <div className="navbar">
             {data.allWordpressPage.edges.sort((a,b) => a.node.featured_media ? 1 : -1).map(page => <Link key={page.node.path} to={page.node.path}>{page.node.featured_media ? <li><Img className="picture" fluid={page.node.featured_media.localFile.childImageSharp.fluid} /></li> : <li dangerouslySetInnerHTML={{ __html: page.node.title }} />}</Link>)}
           </div>
-          <HomeSlider posts={data.allWordpressPost.edges.slice(3)} />
+          <SearchBar />
+          <HomeSlider categories={data.allWordpressCategory} posts={data.allWordpressPost.edges.slice(3)} />
         </div>
       </div>
     </Layout>
@@ -77,6 +78,10 @@ export const query = graphql`
               } 
           }
         }
+        categories {
+          id
+          name
+        }
       }
     }
   }
@@ -96,6 +101,15 @@ export const query = graphql`
               } 
           }
         }
+      }
+    }
+  }
+  
+  allWordpressCategory {
+    edges {
+      node {
+        id
+        name
       }
     }
   }
